@@ -36,7 +36,7 @@ return new class extends Migration
 
             $table->char('age', 2);                                     // colonne "age" type chaîne de caractères longueur fixe 2 caractères
 
-            $table->date('date_pays', 255);                             // colonne "date_pays" type date limite 225 caractères
+            $table->date('date_permis', 255);                           // colonne "date_permis" type date limite 225 caractères
 
             $table->rememberToken();                                    // colonne "rememberToken" pour fonctionnalité de "remember me" de l'authentification
 

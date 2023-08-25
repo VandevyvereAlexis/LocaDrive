@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+// importe la classe 'Schema' du namespace 'Illuminate\Support\Facades'. Permet d'utiliser les fonctionnalités de la classe 'Schema' sans devoir spécifier le namespace complet à chaque fois.
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -19,7 +20,13 @@ return new class extends Migration
 
             $table->string('modele', 50);                           // colonne "energie" type chaîne de caractères limite 50 caractères
 
-            $table->string('energie', 15);                          // colonne "energie" type chaîne de caractères limite 15 caractères
+            $table->enum('energie', [                               // colonne "energie" type énumération permet de créer un type de données personnalisé avec un ensemble restreint de choix possibles.
+                'Essence',
+                'Diesel',
+                'Hybride',
+                'Électrique',
+                'Hybride rechargeable',
+            ]);                          
 
             $table->string('image', 50);                            // colonne "image" type chaîne de caractères limite 50 caractères
 
@@ -29,11 +36,11 @@ return new class extends Migration
 
             $table->char('kilometrage', 6);                         // colonne "kilometrage" type chaîne de caractères longueur fixe 6 caractères
 
-            $table->char('nombre_places', 9);                       // colonne "nombre_places" type chaîne de caractères longueur fixe 9 caractères 
-
             $table->text('description');                            // colonne "description" type texte
 
             $table->integer('prix');                                // colonne "prix" type entier
+
+            $table->integer('nombre_places');                       // colonne "nombre_places" type entier 
 
             $table->date('date_controle');                          // colonne "date_controle" type date
 
@@ -53,5 +60,9 @@ return new class extends Migration
         Schema::dropIfExists('vehicules');                          // supprime la table "vehicules" si elle existe
     }
 };
+
+
+
+
 
 

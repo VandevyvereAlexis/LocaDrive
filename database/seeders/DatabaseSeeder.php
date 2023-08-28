@@ -22,9 +22,9 @@ class DatabaseSeeder extends Seeder
 
             CategorieSeeder::class,     // Appelle Seeder "CategorieSeeder" pour remplir la table des "Categories"
 
-            AvisSeeder::class,          // Appelle Seeder "AvisSeeder" pour remplir la table des "Avis"
-
             VehiculeSeeder::class,      // Appelle Seeder "VehiculeSeeder" pour remplir la table des "Vehicules"
+
+            AvisSeeder::class,          // Appelle Seeder "AvisSeeder" pour remplir la table des "Avis"
 
             ForfaitSeeder::class,       // Appelle Seeder "ForfaitSeeder" pour remplir la table des "Forfaits"
 

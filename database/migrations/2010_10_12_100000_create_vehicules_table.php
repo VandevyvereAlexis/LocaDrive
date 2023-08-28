@@ -32,7 +32,7 @@ return new class extends Migration
 
             $table->string('immatriculation', 10);                  // colonne "immatriculation" type chaîne de caractères limite 10 caractères
 
-            $table->char('année', 4);                               // colonne "année" type chaîne de caractères longueur fixe 4 caractères
+            $table->char('annee', 4);                               // colonne "année" type chaîne de caractères longueur fixe 4 caractères
 
             $table->char('kilometrage', 6);                         // colonne "kilometrage" type chaîne de caractères longueur fixe 6 caractères
 
@@ -45,6 +45,8 @@ return new class extends Migration
             $table->date('date_controle');                          // colonne "date_controle" type date
 
             $table->foreignId('adresse_id')->constrained();         // colonne "adresse_id" type clé étrangère liée à table "adresse"
+
+            $table->timestamps();                                   // colonne "created_at" et "updated_at" type timestamp pour timestamps de création et mise à jour
 
             $table->foreignId('categorie_id')->constrained();       // colonne "categorie_id" type clé étrangère liée à table "categorie"
 

@@ -20,6 +20,13 @@ class UserSeeder extends Seeder
         User::create([
             'nom'               => 'Admin',                     // valeur "Admin" pour colonne "nom"
             'prenom'            => 'Admin',                     // valeur "Admin" pour colonne "prenom"
+            'pseudo'            => 'Admin',
+            'age'               => '18',
+            'image'             => 'user.png',
+            'numero'            => '0736484629',
+            'numero_permis'     => '37824879BJ89297',
+            'pays_permis'       => 'France',
+            'date_permis'       => '2017-08-17',
             'password'          => Hash::make('Admin2023!'),    // valeur génère un hachage sécurisé du mot de passe "Admin2023!" en utilisant la classe Hash de Laravel pour colonne "password"
             'email'             => 'admin@admin.fr',            // valeur "admin@admin.fr" pour colonne "email"
             'email_verified_at' => now(),                       // assigne la date et l'heure actuelles à la colonne "email_verified_at", indique que l'adresse e-mail de l'utilisateur a été vérifiée à ce moment précis.
@@ -31,6 +38,13 @@ class UserSeeder extends Seeder
         User::create([
             'nom'               => 'User',                      // valeur "User" pour colonne "nom"
             'prenom'            => 'User',                      // valeur "User" pour colonne "prenom"
+            'pseudo'            => 'User',
+            'age'               => '18',
+            'image'             => 'user.png',
+            'numero'            => '0775940802',
+            'numero_permis'     => '37849899BDJS297',
+            'pays_permis'       => 'France',
+            'date_permis'       => '2014-05-14',
             'password'          => Hash::make('User2023!'),     // valeur génère un hachage sécurisé du mot de passe "User2023!" en utilisant la classe Hash de Laravel pour colonne "password"
             'email'             => 'user@user.fr',              // valeur "user@user.fr" pour colonne "email"
             'email_verified_at' => now(),                       // assigne la date et l'heure actuelles à la colonne "email_verified_at", indique que l'adresse e-mail de l'utilisateur a été vérifiée à ce moment précis.

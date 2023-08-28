@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) 
         {
-            $table->date('date_debut');                             // colonne "date_debut" type date
+            $table->dateTime('date_debut');                         // colonne "date_debut" type date
 
-            $table->date('date_fin');                               // colonne "date_fin" type date
+            $table->dateTime('date_fin');                           // colonne "date_fin" type date
 
             $table->timestamps();                                   // colonne "created_at" et "updated_at" type timestamp pour timestamps de création et mise à jour
 

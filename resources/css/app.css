@@ -1,0 +1,298 @@
+/* RESET */
+body 
+{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+/* REGISTER.BLADE */
+#container_register_blade 
+{
+    background-color: #d1d9e6;
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+#container_register_blade input 
+{
+    background-color: #d1d9e600;
+    box-shadow: inset -2px -2px 4px #9fa1a3,
+                inset 2px 2px 4px #ffffff;
+}
+
+#row_register_blade {
+    min-height: 100vh;
+}
+
+#card_register_blade 
+{
+    border-radius: 20px;
+    background: #f0f3f6;
+    box-shadow: inset -4px -4px 7px #9fa1a3,
+                inset 4px 4px 7px #ffffff;
+    font-family: 'Prompt', sans-serif;
+    font-weight: 300;
+}
+
+#card_header_register_blade 
+{
+    background-color: #27232700;
+    border-color: #a0a4ef;
+}
+
+#button_validation_register_blade 
+{
+    border-color: #ffffff;
+    color: azure;
+}
+
+
+
+
+
+
+
+
+
+
+/* LOGIN.BLADE */
+#container_login_blade 
+{
+    background-color: #d1d9e6;
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+#container_login_blade input 
+{
+    background-color: #d1d9e600;
+    box-shadow: inset -2px -2px 4px #9fa1a3,
+                inset 2px 2px 4px #ffffff;
+}
+
+#row_login_blade 
+{
+    min-height: 100vh;
+}
+
+#card_login_blade 
+{
+    border-radius: 20px;
+    background: #f0f3f6;
+    box-shadow: inset -4px -4px 7px #9fa1a3,
+                inset 4px 4px 7px #ffffff;
+    font-family: 'Prompt', sans-serif;
+    font-weight: 300;
+}
+
+#card_header_login_blade 
+{
+    background-color: #27232700;
+    border-color: #a0a4ef;
+}
+
+#button_validation_login_blade 
+{
+    border-color: #ffffff;
+    color: azure;
+}
+
+
+
+
+
+
+
+
+
+
+/* EMAIL.BLADE */
+#container_email_blade 
+{
+    background-color: #d1d9e6;
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+#container_email_blade input
+{
+    background-color: #d1d9e600;
+    box-shadow: inset -2px -2px 4px #9fa1a3,
+                inset 2px 2px 4px #ffffff;
+}
+
+#row_email_blade 
+{
+    min-height: 100vh;
+}
+
+#card_email_blade 
+{
+    border-radius: 20px;
+    background: #f0f3f6;
+    box-shadow: inset -4px -4px 7px #9fa1a3,
+                inset 4px 4px 7px #ffffff;
+    font-family: 'Prompt', sans-serif;
+    font-weight: 300;
+}
+
+#card_header_email_blade 
+{
+    background-color: #27232700;
+    border-color: #a0a4ef;
+}
+
+#button_validation_email_blade 
+{
+    border-color: #ffffff;
+    color: azure;
+}
+
+
+
+
+
+
+
+
+
+
+/* APP.BLADE */
+#logo_navbar_app_blade 
+{
+    width: 11rem;
+}
+
+
+
+
+
+
+
+
+
+
+/* BUTTON EFFET */
+button 
+{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+button.learn-more 
+{
+    width: 12rem;
+    height: auto;
+}
+
+button.learn-more .circle 
+{
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background:#a0a4ef;
+    border-radius: 1.625rem;
+}
+
+button.learn-more .circle .icon 
+{
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+}
+
+button.learn-more .circle .icon.arrow 
+{
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+}
+
+button.learn-more .circle .icon.arrow::before 
+{
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+}
+
+button.learn-more .button-text 
+{
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #a0a4ef;;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+button:hover .circle 
+{
+    width: 100%;
+}
+
+button:hover .circle .icon.arrow 
+{
+    background: #fff;
+    transform: translate(1rem, 0);
+}
+
+button:hover .button-text 
+{
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+

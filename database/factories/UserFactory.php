@@ -26,7 +26,7 @@ class UserFactory extends Factory
 
             'image' => 'par_defaut.jpg',                                                    // Chemin d'accès par défaut vers l'image du profil de l'utilisateur, tous les utilisateurs auront la même image par défaut "par_defaut.jpg".
 
-            'age' => rand(18, 60),                                                          // Génération aléatoire d'un âge entre 18 et 60 ans.
+            'age' => rand(30, 45),                                                          // Génération aléatoire d'un âge entre 18 et 60 ans.
 
             'numero' => '0123456789',                                                       // Numéro de téléphone fictif.
 
@@ -34,7 +34,7 @@ class UserFactory extends Factory
 
             'pays_permis' => 'France',                                                      // Pays dans lequel le permis a été délivré.
 
-            'date_permis' => fake()->date(),                                                // Génération aléatoire d'une date de délivrance de permis en utilisant la méthode date() de l'objet faker.
+            'date_permis' => fake()->dateTimeBetween('-10 years'),                          // Génération aléatoire d'une date de délivrance de permis en utilisant la méthode date() de l'objet faker.
 
             'email' => fake()->unique()->safeEmail(),                                       // Génération aléatoire d'une adresse e-mail unique et valide en utilisant les méthodes unique() et safeEmail() de l'objet faker.
 

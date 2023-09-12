@@ -1,11 +1,17 @@
-/* RESET */
+/* RESET                                                                                          "TERMINE"
+=========================================================================================================== DEBUT */
+
+/* BODY GENERAL */
 body 
 {
     width: 100%;
-    padding: 0;
+    min-height: 100vh;
+    padding: 4px;
     margin: 0;
+    background-image: linear-gradient(115deg,#4fcf70,#fad648,#a767e5,#12bcfe,#44ce7b);
 }
 
+/* FIN ====================================================================================================== FIN */
 
 
 
@@ -15,170 +21,49 @@ body
 
 
 
-/* REGISTER.BLADE */
-#container_register_blade 
+
+
+
+
+
+
+/* APP.BLADE 
+=========================================================================================================== DEBUT */
+
+#navbar 
 {
-    background-color: #d1d9e6;
-    min-height: 100vh;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
+    background: #fffcf000;
+    backdrop-filter: blur(7px);
+    box-shadow: 2px 2px 8px rgba(0,0,0,1),
+                -1px -1px 4px rgba(255, 255, 255, 0.6);
 }
 
-#container_register_blade input 
-{
-    background-color: #d1d9e600;
-    box-shadow: inset -2px -2px 4px #9fa1a3,
-                inset 2px 2px 4px #ffffff;
-}
-
-#row_register_blade {
-    min-height: 100vh;
-}
-
-#card_register_blade 
-{
-    border-radius: 20px;
-    background: #f0f3f6;
-    box-shadow: inset -4px -4px 7px #9fa1a3,
-                inset 4px 4px 7px #ffffff;
-    font-family: 'Prompt', sans-serif;
-    font-weight: 300;
-}
-
-#card_header_register_blade 
-{
-    background-color: #27232700;
-    border-color: #a0a4ef;
-}
-
-#button_validation_register_blade 
-{
-    border-color: #ffffff;
-    color: azure;
-}
-
-
-
-
-
-
-
-
-
-
-/* LOGIN.BLADE */
-#container_login_blade 
-{
-    background-color: #d1d9e6;
-    min-height: 100vh;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-}
-
-#container_login_blade input 
-{
-    background-color: #d1d9e600;
-    box-shadow: inset -2px -2px 4px #9fa1a3,
-                inset 2px 2px 4px #ffffff;
-}
-
-#row_login_blade 
-{
-    min-height: 100vh;
-}
-
-#card_login_blade 
-{
-    border-radius: 20px;
-    background: #f0f3f6;
-    box-shadow: inset -4px -4px 7px #9fa1a3,
-                inset 4px 4px 7px #ffffff;
-    font-family: 'Prompt', sans-serif;
-    font-weight: 300;
-}
-
-#card_header_login_blade 
-{
-    background-color: #27232700;
-    border-color: #a0a4ef;
-}
-
-#button_validation_login_blade 
-{
-    border-color: #ffffff;
-    color: azure;
-}
-
-
-
-
-
-
-
-
-
-
-/* EMAIL.BLADE */
-#container_email_blade 
-{
-    background-color: #d1d9e6;
-    min-height: 100vh;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-}
-
-#container_email_blade input
-{
-    background-color: #d1d9e600;
-    box-shadow: inset -2px -2px 4px #9fa1a3,
-                inset 2px 2px 4px #ffffff;
-}
-
-#row_email_blade 
-{
-    min-height: 100vh;
-}
-
-#card_email_blade 
-{
-    border-radius: 20px;
-    background: #f0f3f6;
-    box-shadow: inset -4px -4px 7px #9fa1a3,
-                inset 4px 4px 7px #ffffff;
-    font-family: 'Prompt', sans-serif;
-    font-weight: 300;
-}
-
-#card_header_email_blade 
-{
-    background-color: #27232700;
-    border-color: #a0a4ef;
-}
-
-#button_validation_email_blade 
-{
-    border-color: #ffffff;
-    color: azure;
-}
-
-
-
-
-
-
-
-
-
-
-/* APP.BLADE */
 #logo_navbar_app_blade 
 {
-    width: 11rem;
+    width: 8.8rem;
 }
 
+/* Liens before */
+#navbar #liens-navbar span::before 
+{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 0%;
+    height: 1px;
+    background-color: #fffcf0;
+    transition: all 0.4s ease-out;
+}
+
+/* Liens hover before */
+#navbar #liens-navbar span:hover::before 
+{
+    width: 100%;
+}
+
+/* FIN ====================================================================================================== FIN */
 
 
 
@@ -188,7 +73,545 @@ body
 
 
 
-/* BUTTON EFFET */
+
+
+
+
+
+
+/* REGISTER.BLADE "FORMULAIRE INSCRIPTION"                                                        "TERMINE"
+=========================================================================================================== DEBUT */
+
+/* CONTAINER FICHIER REGISTER.BLADE */
+#container_register_blade 
+{
+    background: #212121;
+    box-shadow: inset 2px 2px 8px rgba(0,0,0,1),
+                inset -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* ROW FICHIER REGISTER.BLADE */
+#row_register_blade 
+{
+    min-height: 99.3vh;
+}
+
+/* H1 "INSCRIPTION" */
+#row_register_blade h1 
+{
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 2.8rem;
+    color: #fffcf0;
+    font-weight: 400;
+    text-shadow: 2px 2px 10px rgba(0,0,0,1),
+                -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* CARD "FORMULAIRE INSCRIPTION" */
+#card_register_blade 
+{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 200;
+    color: #fffcf0;
+    border-radius: 15px;
+    box-shadow: inset 2px 2px 10px rgba(0,0,0,1),
+                inset -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* CRITERES MOTS DE PASSE */
+#card_register_blade #passwordHelp 
+{
+    text-shadow: 2px 2px 10px rgba(0,0,0,1),
+                -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* LABEL FORMUMAIRE INSCRIPTION */
+#card_register_blade label 
+{
+    text-shadow: 2px 2px 10px rgba(0,0,0,1),
+                -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* INPUT FORMULAIRE INSCRIPTION  */
+#card_register_blade input 
+{
+    transition: 0.35s;
+    color: #fffcf0;
+    background-color: #212121;
+    border: 2px solid #212121;
+    font-weight: 300;
+    border-radius: 6px;
+    padding: 10px 7px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,1),
+    -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* TRANSITION "RETOUR" INPUT + OPACITE PLACEHOLDER */
+#card_register_blade input:focus#card_register_blade input::placeholder 
+{
+    transition: 0.3s;
+    opacity: 0;
+}
+
+/* SCALE + EFFET "CREUSER" INPUT*/
+#card_register_blade input:focus 
+{
+    transform: scale(1.01);
+    box-shadow: 6px 6px 10px rgba(0,0,0,1),
+                1px 1px 10px rgba(255, 255, 255, 0.6),
+                inset 2px 2px 10px rgba(0,0,0,1),
+                inset -1px -1px 5px rgba(255, 255, 255, 0.6);
+}
+
+/* TEXTE PLACEHOLDER INPUT */
+#card_register_blade input::placeholder 
+{
+    color: #999;
+    font-size: 10px;
+}
+
+/* TEXTE DATE RENSEIGNEE */
+#card_register_blade #date_permis 
+{
+    font-size: 10px;
+    color:#fffcf0;
+}
+
+/* TEXTE FICHIER CHARGE */
+#card_register_blade #image 
+{
+    font-size: 10px;
+    color:#fffcf0;
+}
+
+/* BOUTTON FICHIER IMAGE */
+#card_register_blade #image::-webkit-file-upload-button 
+{
+    font-size: 10px;
+    color:#999;
+    background: #212121;
+    border-right: 1px solid #999;
+} 
+
+/* lien "RETOUR A LA CONNEXION" */
+#lien_register_blade 
+{
+    list-style-type: none; 
+    text-decoration: none;
+    text-shadow: 2px 2px 10px rgba(0,0,0,1),
+                -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* Liens "RETOUR A LA CONNEXION" before */
+#lien_register_blade #lien_span_register_blade::before 
+{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 0%;
+    height: 1px;
+    background-color:  #fffcf0;
+    transition: all 0.4s ease-out;
+}
+
+/* Liens "RETOUR A LA CONNEXION" hover before */
+#lien_register_blade #lien_span_register_blade:hover::before 
+{
+    width: 100%;
+}
+
+/* Button MOBILE - TABLETTE "REGISTER.BLADE" */
+#button_register_blade 
+{
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    outline: none;
+    height: 50px;
+    width: 150px;
+    border: none;
+    text-decoration: none;
+    background-image: linear-gradient(115deg,#4fcf70,#fad648,#a767e5,#12bcfe,#44ce7b);
+    box-shadow: 2px 2px 10px rgba(0,0,0,1),
+    -1px -1px 4px rgba(255, 255, 255, 0.6);;
+}
+
+/* Button MOBILE - TABLETTE "REGISTER.BLADE" */
+#button_register_blade  span 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: 145px;
+    background: #212121;
+    font-size: 18px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,1),
+                -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* FIN ====================================================================================================== FIN */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* LOGIN.BLADE                                                                                    "TERMINE"
+=========================================================================================================== DEBUT */
+
+/* CONTAINER FICHIER LOGIN.BLADE */
+#container_login_blade 
+{
+    background: #212121;
+    box-shadow: inset 2px 2px 8px rgba(0,0,0,1),
+                inset -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* ROW FICHIER LOGIN.BLADE */
+#row_login_blade 
+{
+    min-height: 99.3vh;
+}
+
+/* H1 "CONNEXION" */
+#row_login_blade h1 
+{
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 2.8rem;
+    color: #fffcf0;
+    font-weight: 400;
+    text-shadow: 2px 2px 10px rgba(0,0,0,1),
+                -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* CARD "FORMULAIRE CONNEXION" */
+#card_login_blade 
+{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 200;
+    color: #fffcf0;
+    border-radius: 15px;
+    box-shadow: inset 2px 2px 10px rgba(0,0,0,1),
+                inset -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* LABEL FORMUMAIRE CONNEXION */
+#card_register_blade label 
+{
+    text-shadow: 2px 2px 10px rgba(0,0,0,1),
+                -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* INPUT FORMULAIRE CONNEXION  */
+#card_login_blade input 
+{
+    transition: 0.35s;
+    color: #fffcf0;
+    background-color: #212121;
+    border: 2px solid #212121;
+    font-weight: 300;
+    border-radius: 6px;
+    padding: 10px 7px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,1),
+    -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* TRANSITION "RETOUR" INPUT + OPACITE PLACEHOLDER */
+#card_login_blade input:focus#card_login_blade input::placeholder 
+{
+    transition: 0.3s;
+    opacity: 0;
+}
+
+/* SCALE + EFFET "CREUSER" INPUT*/
+#card_login_blade input:focus 
+{
+    transform: scale(1.01);
+    box-shadow: 6px 6px 10px rgba(0,0,0,1),
+                1px 1px 10px rgba(255, 255, 255, 0.6),
+                inset 2px 2px 10px rgba(0,0,0,1),
+                inset -1px -1px 5px rgba(255, 255, 255, 0.6);
+}
+
+/* TEXTE PLACEHOLDER INPUT */
+#card_login_blade input::placeholder 
+{
+    color: #999;
+    font-size: 10px;
+}
+
+/* lien "CREER UN COMPTE" */
+#lien_login_blade 
+{
+    list-style-type: none; 
+    text-decoration: none;
+    text-shadow: 2px 2px 10px rgba(0,0,0,1),
+                -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* Liens "CREER UN COMPTE" before */
+#lien_login_blade #lien_span_login_blade::before 
+{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 0%;
+    height: 1px;
+    background-color:  #fffcf0;
+    transition: all 0.4s ease-out;
+}
+
+/* Liens "CREER UN COMPTE" hover before */
+#lien_login_blade #lien_span_login_blade:hover::before 
+{
+    width: 100%;
+}
+
+/* Button MOBILE - TABLETTE "LOGIN.BLADE" */
+#button_login_blade 
+{
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    outline: none;
+    height: 50px;
+    width: 150px;
+    border: none;
+    text-decoration: none;
+    background-image: linear-gradient(115deg,#4fcf70,#fad648,#a767e5,#12bcfe,#44ce7b);
+    box-shadow: 2px 2px 10px rgba(0,0,0,1),
+    -1px -1px 4px rgba(255, 255, 255, 0.6);;
+}
+
+/* Button MOBILE - TABLETTE "LOGIN.BLADE" */
+#button_login_blade  span 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: 145px;
+    background: #212121;
+    font-size: 18px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,1),
+                -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* FIN ====================================================================================================== FIN */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* EMAIL.BLADE                                                                                    "TERMINE"
+=========================================================================================================== DEBUT */
+
+/* CONTAINER FICHIER EMAIL.BLADE */
+#container_email_blade 
+{
+    background: #212121;
+    box-shadow: inset 2px 2px 8px rgba(0,0,0,1),
+                inset -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* ROW FICHIER LOGIN.BLADE */
+#row_email_blade 
+{
+    min-height: 99.3vh;
+}
+
+/* H1 "CONNEXION" */
+#row_email_blade h1 
+{
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 2.8rem;
+    color: #fffcf0;
+    font-weight: 400;
+    text-shadow: 2px 2px 10px rgba(0,0,0,1),
+                -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* CARD "FORMULAIRE CONNEXION" */
+#card_email_blade 
+{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 200;
+    color: #fffcf0;
+    border-radius: 15px;
+    box-shadow: inset 2px 2px 10px rgba(0,0,0,1),
+                inset -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* LABEL FORMUMAIRE CONNEXION */
+#card_email_blade label 
+{
+    text-shadow: 2px 2px 10px rgba(0,0,0,1),
+                -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* INPUT FORMULAIRE CONNEXION  */
+#card_email_blade input 
+{
+    transition: 0.35s;
+    color: #fffcf0;
+    background-color: #212121;
+    border: 2px solid #212121;
+    font-weight: 300;
+    border-radius: 6px;
+    padding: 10px 7px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,1),
+                -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* TRANSITION "RETOUR" INPUT + OPACITE PLACEHOLDER */
+#card_email_blade input:focus#card_email_blade input::placeholder 
+{
+    transition: 0.3s;
+    opacity: 0;
+}
+
+/* SCALE + EFFET "CREUSER" INPUT*/
+#card_email_blade input:focus 
+{
+    transform: scale(1.01);
+    box-shadow: 6px 6px 10px rgba(0,0,0,1),
+                1px 1px 10px rgba(255, 255, 255, 0.6),
+                inset 2px 2px 10px rgba(0,0,0,1),
+}
+
+/* TEXTE PLACEHOLDER INPUT */
+#card_email_blade input::placeholder 
+{
+    color: #999;
+    font-size: 10px;
+}
+
+/* lien "RETOUR A LA CONNEXION" */
+#lien_email_blade 
+{
+    list-style-type: none; 
+    text-decoration: none;
+    text-shadow: 2px 2px 10px rgba(0,0,0,1),
+                -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* Liens "RETOUR A LA CONNEXION" before */
+#lien_email_blade #lien_span_email_blade::before 
+{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 0%;
+    height: 1px;
+    background-color:  #fffcf0;
+    transition: all 0.4s ease-out;
+}
+
+/* Liens "RETOUR A LA CONNEXION" hover before */
+#lien_email_blade #lien_span_email_blade:hover::before 
+{
+    width: 100%;
+}
+
+/* Button MOBILE - TABLETTE "EMAIL.BLADE" */
+#button_email_blade 
+{
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    outline: none;
+    height: 50px;
+    width: 150px;
+    border: none;
+    text-decoration: none;
+    background-image: linear-gradient(115deg,#4fcf70,#fad648,#a767e5,#12bcfe,#44ce7b);
+    box-shadow: 2px 2px 10px rgba(0,0,0,1),
+    -1px -1px 4px rgba(255, 255, 255, 0.6);;
+}
+
+/* Button MOBILE - TABLETTE "EMAIL.BLADE" */
+#button_email_blade  span 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: 145px;
+    background: #212121;
+    font-size: 18px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,1),
+                -1px -1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* FIN ====================================================================================================== FIN */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* BUTTON ( REGISTER.BLADE ; LOGIN.BLADE )
+=========================================================================================================== DEBUT */
 button 
 {
     position: relative;
@@ -218,8 +641,10 @@ button.learn-more .circle
     margin: 0;
     width: 3rem;
     height: 3rem;
-    background:#a0a4ef;
+    background: #fffcf0;
     border-radius: 1.625rem;
+    box-shadow: 2px 2px 10px rgba(0,0,0,1),
+                -1px -1px 4px rgba(255, 255, 255, 0.6);
 }
 
 button.learn-more .circle .icon 
@@ -229,7 +654,7 @@ button.learn-more .circle .icon
     top: 0;
     bottom: 0;
     margin: auto;
-    background: #fff;
+    background: #fffcf0;
 }
 
 button.learn-more .circle .icon.arrow 
@@ -245,12 +670,12 @@ button.learn-more .circle .icon.arrow::before
 {
     position: absolute;
     content: "";
-    top: -0.29rem;
+    top: -0.26rem;
     right: 0.0625rem;
     width: 0.625rem;
     height: 0.625rem;
-    border-top: 0.125rem solid #fff;
-    border-right: 0.125rem solid #fff;
+    border-top: 0.125rem solid #212121;
+    border-right: 0.125rem solid #212121;
     transform: rotate(45deg);
 }
 
@@ -264,7 +689,7 @@ button.learn-more .button-text
     bottom: 0;
     padding: 0.75rem 0;
     margin: 0 0 0 1.85rem;
-    color: #a0a4ef;;
+    color: #fffcf0;
     font-weight: 700;
     line-height: 1.6;
     text-align: center;
@@ -278,14 +703,235 @@ button:hover .circle
 
 button:hover .circle .icon.arrow 
 {
-    background: #fff;
+    background: #212121;
     transform: translate(1rem, 0);
 }
 
 button:hover .button-text 
 {
-    color: #fff;
+    color:#212121;
 }
+
+/* FIN ====================================================================================================== FIN */
+
+
+
+
+
+
+
+
+
+
+/* SPHERE ( REGISTER.BLADE ; LOGIN.BLADE )
+=========================================================================================================== DEBUT */
+
+.loader 
+{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 30px 4px rgba(0, 0, 0, 0.5) inset,
+        0 5px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    box-shadow: 2px 2px 10px rgba(0,0,0,1),
+    -1px -1px 4px rgba(255, 255, 255, 0.6);
+    
+}
+
+.loader:before, .loader:after 
+{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 45%;
+    top: -40%;
+    background-color: #2e2e2e;
+    animation: wave 5s linear infinite;
+}
+
+.loader:before 
+{
+    border-radius: 30%;
+    background: #fffcf0;
+    animation: wave 5s linear infinite;
+}
+
+@keyframes wave 
+{
+    0% 
+    {
+        transform: rotate(0);
+    }
+
+    100% 
+    {
+        transform: rotate(360deg);
+    }
+}
+
+/* FIN ====================================================================================================== FIN */
+
+
+
+
+
+
+
+
+
+/* MEDIA QUERIES
+=========================================================================================================== DEBUT */
+@media screen and ( max-width: 767px ) 
+{
+    /* APP.BLADE 
+    ===================================*/
+
+    /* Liens before */
+    #navbar #liens-navbar span::before 
+    {
+        content: none;
+        position: none;
+        bottom: none;
+        left: none; 
+        transform: none;
+        width: none;
+        height: none;
+        background-color: none;
+        transition: none;
+    }
+
+    /* Liens hover before */
+    #navbar #liens-navbar span:hover::before 
+    {
+        width: none;
+    }
+
+    /* Navbar tablette - mobile */
+    #navbarSupportedContent 
+    {
+        margin-bottom: 1.5rem;
+    }
+
+
+
+    /* REGISTER.BLADE 
+    ===================================*/
+
+    /* Liens "RETOUR A LA CONNEXION" before */
+    #lien_register_blade #lien_span_register_blade::before 
+    {
+        content: none;
+        position: none;
+        bottom: none;
+        left: none; 
+        transform: none;
+        width: none;
+        height: none;
+        background-color: none;
+        transition: none;
+    }
+
+    /* Liens "RETOUR A LA CONNEXION" hover before */
+    #lien_register_blade #lien_span_register_blade:hover::before 
+    {
+        width: none;
+    }
+
+    /* Button MOBILE - TABLETTE "REGISTER.BLADE" */
+    #row_button_register_blade 
+    {
+        display: none;
+    }
+
+    /* Button MOBILE - TABLETTE "REGISTER.BLADE" */
+    #row_button_tb_register_blade 
+    {
+        display: flex !important;
+    }
+
+
+
+    /* LOGIN.BLADE 
+    ===================================*/
+
+    /* Liens "CREER UN COMPTE" before */
+    #lien_login_blade #lien_span_login_blade::before 
+    {
+        content: none;
+        position: none;
+        bottom: none;
+        left: none; 
+        transform: none;
+        width: none;
+        height: none;
+        background-color: none;
+        transition: none;
+    }
+
+    /* Liens "CREER UN COMPTE" hover before */
+    #lien_login_blade #lien_span_login_blade:hover::before 
+    {
+        width: none;
+    }
+
+    /* Button MOBILE - TABLETTE "LOGIN.BLADE" */
+    #row_button_login_blade 
+    {
+        display: none;
+    }
+
+    /* Button MOBILE - TABLETTE "LOGIN.BLADE" */
+    #row_button_tb_login_blade 
+    {
+        display: flex !important;
+    }
+
+
+
+    /* EMAIL.BLADE 
+    ===================================*/
+
+    /* Liens "RETOUR A LA CONNEXION" before */
+    #lien_email_blade #lien_span_email_blade::before 
+    {
+        content: none;
+        position: none;
+        bottom: none;
+        left: none; 
+        transform: none;
+        width: none;
+        height: none;
+        background-color: none;
+        transition: none;
+    }
+
+    /* Liens "RETOUR A LA CONNEXION" hover before */
+    #lien_email_blade #lien_span_email_blade:hover::before 
+    {
+        width: none;
+    }
+
+    /* Button MOBILE - TABLETTE "EMAIL.BLADE" */
+    #row_button_email_blade 
+    {
+        display: none;
+    }
+
+    /* Button MOBILE - TABLETTE "EMAIL.BLADE" */
+    #row_button_tb_email_blade 
+    {
+        display: flex !important;
+    }
+}
+
+
+
+
+
+
 
 
 

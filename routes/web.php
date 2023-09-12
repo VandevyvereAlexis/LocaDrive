@@ -14,11 +14,19 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('home');
-});
-
+// DEFINIT LES ROUTES D'AUTHENTIFICATION
 Auth::routes();
 
+
+// ROUTE PAGE D'ACCUEIL (pour accès au site, si pas inscrit)
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// ROUTE PAGE D'ACCUEIL
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// RESSOURCE POUR LA GESTION DES UTILISATEURS (à l'exception de index, create et store)
+Route::resource('/user', App\Http\Controllers\UserController::class)->except('index', 'create', 'store');
+
+

@@ -5,38 +5,18 @@
 
     <!-- SECTION CARD FORMULAIRE INSCRIPTION
     ===================================================================================== -->
-    <div class="container-fluid pt-5" id="container_register_blade">
+    <div class="container-fluid rounded" id="container_register_blade">
         <div class="row justify-content-center align-items-center" id="row_register_blade">
             <div class="col-md-7 col-sm-11">
 
 
-                <!-- MESSAGES ALERT / SUCCESS
-                ===================================================================================== -->
-                <div class="container-fluid mx-auto col-md-7 col-sm-11 border-0 m-0 p-1 text-center pt-2">
-                    @if (session()->has('message'))
-                        <p class="alert alert-success">{{ session()->get('message') }}</p>
-                    @endif
-
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul class="p-0" style="list-style-type: none ; text-decoration: none;">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                </div>
+                <!-- MESSAGES ALERTE SUCCESS/DANGER -->
+                @include('messages')
 
 
                 <!-- CARD
                 ===================================================================================== -->
-                <div class="card p-1 mb-4 border-0" id="card_register_blade">
-
-
-                    <!-- CARD HEADER
-                    ===================================================================================== -->
-                    <div class="card-header" id="card_header_register_blade"><h1 class="fs-6 m-1">{{ __('Inscription') }}</h1></div>
+                <div class="card bg-transparent py-4 mt-2 mb-4" id="card_register_blade">
 
 
                     <!-- CARD BODY 
@@ -50,21 +30,28 @@
                         @csrf
 
 
-                            <!-- SECTION "NOM + PRENOM + EMAIL + PSEUDO + IMAGE + MOT DE PASSE + MOT DE PASSE CONFIRM"
+                            <!-- NOM + PRENOM + EMAIL + PSEUDO + PASSWORD + PASSWORD CONFIRM
                             ===================================================================================== -->
                             <div class="row justify-content-center">
-                                <div class="col-10 border-bottom mb-1" style="border-color: #a0a4ef !important;">
-                                    <h3 class="text-center mt-2"><small>Informations de base</small></h3>
+                                <div class="col-md-10 col-sm-12">
+                                    <h1 class="text-center mb-5">{{ __('Inscription') }}</h1>
 
 
-                                    <!-- SECTION NOM + PRENOM
+                                    <!-- LIEN RETOUR A LA CONNEXION
                                     ===================================================================================== -->
-                                    <div class="row justify-content-center mt-4">
+                                    <div class="col text-center mb-5">
+                                        <a class="text-light mx-auto" id="lien_register_blade" href="{{ route('login') }}"><span class="position-relative" id="lien_span_register_blade">{{ __('- Retour à la connexion -') }}</span></a>
+                                    </div>
+
+
+                                    <!-- NOM + PRENOM
+                                    ===================================================================================== -->
+                                    <div class="row justify-content-center">
 
                                         <!-- NOM -->
                                         <div class="col-6">
-                                            <label for="nom" class="col-form-label ms-1"><small>{{ __('Nom') }}</small></label>
-                                            <input id="nom" type="text" placeholder="Nom..." class="form-control @error('nom') is-invalid @enderror" name="nom" value="{{ old('nom') }}" required autocomplete="on" autofocus>
+                                            <label for="nom" class="col-form-label ms-2 pb-1"><small>{{ __('- Nom') }}</small></label>
+                                            <input id="nom" type="text" placeholder="Nom ..." class="form-control @error('nom') is-invalid @enderror" name="nom" value="{{ old('nom') }}" required autocomplete="on" autofocus>
 
                                             @error('nom')
                                                 <span class="invalid-feedback" role="alert">
@@ -76,8 +63,8 @@
 
                                         <!-- PRENOM -->
                                         <div class="col-6">
-                                            <label for="prenom" class="col-form-label ms-1"><small>{{ __('Prénom') }}</small></label>
-                                            <input id="prenom" type="text" placeholder="Prénom..." class="form-control @error('prenom') is-invalid @enderror" name="prenom" value="{{ old('prenom') }}" required autocomplete="on">
+                                            <label for="prenom" class="col-form-label ms-2 pb-1"><small>{{ __('- Prénom') }}</small></label>
+                                            <input id="prenom" type="text" placeholder="Prénom ..." class="form-control @error('prenom') is-invalid @enderror" name="prenom" value="{{ old('prenom') }}" required autocomplete="on">
 
                                             @error('prenom')
                                                 <span class="invalid-feedback" role="alert">
@@ -89,12 +76,14 @@
                                     </div>
 
 
-                                    <!-- E-MAIL 
+                                    <!-- E-MAIL + PSEUDO
                                     ===================================================================================== -->
-                                    <div class="row justify-content-center mt-3 ">
-                                        <div class="col">
-                                            <label for="email" class="col-form-label ms-1"><small>{{ __('Adresse e-mail') }}</small></label>
-                                            <input id="email" type="email" placeholder="Adresse e-mail..." class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="on">
+                                    <div class="row justify-content-center mt-3">
+
+                                        <!-- E-MAIL -->
+                                        <div class="col-6">
+                                            <label for="email" class="col-form-label ms-2 pb-1"><small>{{ __('- Adresse e-mail') }}</small></label>
+                                            <input id="email" type="email" placeholder="Adresse e-mail ..." class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="on">
 
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
@@ -102,17 +91,11 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                    </div>
-
-
-                                    <!-- SECTION PSEUDO + IMAGE 
-                                    ===================================================================================== -->
-                                    <div class="row justify-content-center mt-3">
 
                                         <!-- PSEUDO -->
                                         <div class="col-6">
-                                            <label for="pseudo" class="col-form-label ms-1"><small>{{ __('pseudo') }}</small></label>
-                                            <input id="pseudo" type="text" placeholder="Pseudo..." class="form-control @error('pseudo') is-invalid @enderror" name="pseudo" value="{{ old('pseudo') }}" required autocomplete="on">
+                                            <label for="pseudo" class="col-form-label ms-2 pb-1"><small>{{ __('- pseudo') }}</small></label>
+                                            <input id="pseudo" type="text" placeholder="Pseudo ..." class="form-control @error('pseudo') is-invalid @enderror" name="pseudo" value="{{ old('pseudo') }}" required autocomplete="on">
 
                                             @error('pseudo')
                                                 <span class="invalid-feedback" role="alert">
@@ -121,30 +104,18 @@
                                             @enderror
                                         </div>
 
-                                        <!-- IMAGE -->
-                                        <div class="col-6">
-                                            <label for="image" class="col-form-label ms-1"><small>{{ __('image (optionnel)') }}</small></label>
-                                            <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image') }}">
-
-                                            @error('image')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-
                                     </div>
 
 
-                                    <!-- SECTION PASSWORD + CONFIRM 
+                                    <!-- PASSWORD + PASSWORD CONFIRM 
                                     ===================================================================================== -->
-                                    <div class="row justify-content-center mt-3 mb-4">
+                                    <div class="row justify-content-center mt-3">
 
                                         <!-- PASSWORD -->
                                         <div class="col-6">
-                                            <label for="password" class="col-form-label ms-1"><small>{{ __('Mot de passe') }}</small></label>
-                                            <input id="password" type="password" placeholder="..." class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="off">
-                                            <div id="emailHelp" class="form-text ms-1"><small>8 et 15 caracteres. minimum 1 lettre, 1 chiffre et 1 caractère spécial</small></div>
+                                            <label for="password" class="col-form-label ms-2 pb-1"><small>{{ __('- Mot de passe') }}</small></label>
+                                            <input id="password" type="password" placeholder="8 et 15 caracteres. minimum 1 lettre, 1 chiffre et 1 caractère spécial ..." class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="off">
+                                            <div id="passwordHelp" class="form-text ms-2 text-light pt-1"><small>8 et 15 caracteres. minimum 1 lettre, 1 chiffre et 1 caractère spécial</small></div>
 
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
@@ -155,8 +126,8 @@
 
                                         <!-- PASSWORD CONFIRM -->
                                         <div class="col-6">
-                                            <label for="password-confirm" class="col-form-label ms-1"><small>{{ __('Mot de passe') }}</small></label>
-                                            <input id="password-confirm" type="password" placeholder="..." class="form-control" name="password_confirmation" required autocomplete="off">
+                                            <label for="password-confirm" class="col-form-label ms-2 pb-1"><small>{{ __('- Mot de passe') }}</small></label>
+                                            <input id="password-confirm" type="password" placeholder="Confirmation ..." class="form-control" name="password_confirmation" required autocomplete="off">
                                         </div>
 
                                     </div>
@@ -169,21 +140,28 @@
 
 
 
-                            <!-- SECTION "AGE + NUMERO + NUMERO_PERMIS + PAYS_PERMIS + DATE_PERMIS + BUTTON VALIDATION
+                            <!-- SPHERE
+                            ===================================================================================== -->
+                            <div class="loader my-3 mx-auto"></div>
+
+
+
+
+
+                            <!-- AGE + IMAGE + NUMERO TELEPHONE + DATE PERMIS + NUMERO PERMIS + PAYS PERMIS + BUTTON INSCRIPTION
                             ===================================================================================== -->
                             <div class="row justify-content-center">
-                                <div class="col-10 border-top" style="border-color: #a0a4ef !important;">
-                                    <h3 class="text-center mt-4"><small>Informations complémentaires</small></h3>
+                                <div class="col-md-10 col-sm-12">
 
 
-                                    <!-- SECTION AGE + NUMERO TELEPHONE
+                                    <!-- AGE + IMAGE
                                     ===================================================================================== -->
-                                    <div class="row justify-content-center mt-4">
+                                    <div class="row justify-content-center">
 
                                         <!-- AGE -->
-                                        <div class="col-4">
-                                            <label for="age" class="col-form-label ms-1"><small>{{ __('Age') }}</small></label>
-                                            <input id="age" type="number" min="18" max="70" placeholder="18" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required autocomplete="off">
+                                        <div class="col-6">
+                                            <label for="age" class="col-form-label ms-2 pb-1"><small>{{ __('- Age') }}</small></label>
+                                            <input id="age" type="number" min="18" max="70" placeholder="Min : 18 ..." class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required autocomplete="off">
 
                                             @error('age')
                                                 <span class="invalid-feedback" role="alert">
@@ -192,10 +170,29 @@
                                             @enderror
                                         </div>
 
+                                        <!-- IMAGE -->
+                                        <div class="col-6">
+                                            <label for="image" class="col-form-label ms-2 pb-1"><small>{{ __('- image (optionnel)') }}</small></label>
+                                            <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image') }}" >
+
+                                            @error('image')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- NUMERO TELEPHONE + DATE PERMIS 
+                                    ===================================================================================== -->
+                                    <div class="row justify-content-center mt-3">
+
                                         <!-- NUMERO TELEPHONE -->
-                                        <div class="col-8">
-                                            <label for="numero" class="col-form-label ms-1"><small>{{ __('Numéro de téléphone') }}</small></label>
-                                            <input id="numero" type="text" placeholder="06..." class="form-control @error('numero') is-invalid @enderror" name="numero" value="{{ old('nuemro') }}" autocomplete="off">
+                                        <div class="col-6">
+                                            <label for="numero" class="col-form-label ms-2 pb-1"><small>{{ __('- Numéro de téléphone') }}</small></label>
+                                            <input id="numero" type="text" placeholder="00.00.00.00.00 ..." class="form-control @error('numero') is-invalid @enderror" name="numero" value="{{ old('nuemro') }}" autocomplete="off">
 
                                             @error('numero')
                                                 <span class="invalid-feedback" role="alert">
@@ -204,44 +201,9 @@
                                             @enderror
                                         </div>
 
-                                    </div>
-
-
-                                    <!-- NUMERO PERMIS 
-                                    ===================================================================================== -->
-                                    <div class="row justify-content-center mt-3">
-                                        <div class="col">
-                                            <label for="numero_permis" class="col-md-10 col-form-label"><small>{{ __('Numéro de permis') }}</small></label>
-                                            <input id="numero_permis" type="text" placeholder="13AA..." class="form-control @error('numero_permis') is-invalid @enderror" name="numero_permis" value="{{ old('numero_permis') }}" required autocomplete="off">
-
-                                            @error('numero_permis')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-
-                                    <!-- SECTION PAYS PERMIS + DATE PERMIS 
-                                    ===================================================================================== -->
-                                    <div class="row justify-content-center mt-3 border-bottom pb-5" style="border-color: #a0a4ef !important;">
-
-                                        <!-- PAYS PERMIS -->
-                                        <div class="col-6">
-                                            <label for="pays_permis" class="col-form-label ms-1"><small>{{ __('Pays du permis') }}</small></label>
-                                            <input id="pays_permis" type="text" placeholder="Fr.." class="form-control @error('pays_permis') is-invalid @enderror" name="pays_permis" value="{{ old('pays_permis') }}" required autocomplete="off">
-
-                                            @error('pays_permis')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-
                                         <!-- DATE PERMIS -->
                                         <div class="col-6">
-                                            <label for="date_permis" class="col-form-label ms-1"><small>{{ __('Date du permis') }}</small></label>
+                                            <label for="date_permis" class="col-form-label ms-2 pb-1"><small>{{ __('- Date du permis') }}</small></label>
                                             <input id="date_permis" type="date" class="form-control @error('date_permis') is-invalid @enderror" name="date_permis" value="{{ old('date_permis') }}" autocomplete="off">
 
                                             @error('date_permis')
@@ -254,18 +216,57 @@
                                     </div>
 
 
-                                    <!-- BOUTON VALIDATION INSCRIPTION
+                                    <!-- NUMERO PERMIS + PAYS PERMIS 
                                     ===================================================================================== -->
                                     <div class="row justify-content-center mt-3">
-                                        <!--<button type="submit" class="btn col-11" id="button_validation_register_blade"><small>{{ __('S\'inscrire') }}</small></button>-->
-                                        <button type="submit" class="learn-more">
-                                            <span class="circle" aria-hidden="true"><span class="icon arrow"></span></span>
-                                            <span class="button-text">{{ __('S\'inscrire') }}</span>
-                                        </button>
+
+                                        <!-- NUMERO PERMIS -->
+                                        <div class="col-6">
+                                            <label for="numero_permis" class="col-form-label pb-1 ms-2"><small>{{ __('- Numéro de permis') }}</small></label>
+                                            <input id="numero_permis" type="text" placeholder="De 1 à 15 caractères ..." class="form-control @error('numero_permis') is-invalid @enderror" name="numero_permis" value="{{ old('numero_permis') }}" required autocomplete="off">
+
+                                            @error('numero_permis')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+
+                                        <!-- PAYS PERMIS -->
+                                        <div class="col-6">
+                                            <label for="pays_permis" class="col-form-label ms-2 pb-1"><small>{{ __('- Pays du permis') }}</small></label>
+                                            <input id="pays_permis" type="text" placeholder="France ..." class="form-control @error('pays_permis') is-invalid @enderror" name="pays_permis" value="{{ old('pays_permis') }}" required autocomplete="off">
+
+                                            @error('pays_permis')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+
                                     </div>
 
 
                                 </div>
+
+                                <!-- BOUTON VALIDATION INSCRIPTION
+                                ===================================================================================== -->
+                                <div class="row justify-content-center mt-5" id="row_button_register_blade">
+                                    <button type="submit" class="learn-more m-2">
+                                        <span class="circle" aria-hidden="true"><span class="icon arrow"></span></span>
+                                        <span class="button-text">{{ __('S\'inscrire') }}</span>
+                                    </button>
+                                </div>
+
+
+                                <!-- BOUTON "ENVOYER" TABLETTE - MOBILE
+                                ===================================================================================== -->
+                                <div class="row justify-content-center mt-5 d-none" id="row_button_tb_register_blade">
+                                    <button class="btn p-0" id="button_register_blade" type="submit">
+                                        <span>{{ __('S\'inscrire') }}</span>
+                                    </button>
+                                </div>
+
                             </div>
 
 

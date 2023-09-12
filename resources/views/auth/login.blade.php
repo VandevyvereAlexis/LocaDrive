@@ -5,39 +5,18 @@
 
     <!-- SECTION CARD FORMULAIRE CONNEXION
     ===================================================================================== -->
-    <div class="container-fluid pt-5" id="container_login_blade">
+    <div class="container-fluid rounded" id="container_login_blade">
         <div class="row justify-content-center align-items-center" id="row_login_blade">
             <div class="col-md-5 col-sm-11">
 
 
-                <!-- MESSAGES ALERT / SUCCESS
-                ===================================================================================== -->
-                <div class="container-fluid mx-auto col-md-7 col-sm-11 border-0 m-0 p-1 text-center pt-2">
-                    @if (session()->has('message'))
-                        <p class="alert alert-success">{{ session()->get('message') }}</p>
-                    @endif
-
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul class="p-0" style="list-style-type: none ; text-decoration: none;">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                </div>
-
+                <!-- MESSAGES ALERTE SUCCESS/DANGER -->
+                @include('messages')
 
 
                 <!-- CARD
                 ===================================================================================== -->
-                <div class="card p-1 mb-4 border-0" id="card_login_blade">
-
-
-                    <!-- CARD HEADER
-                    ===================================================================================== -->
-                    <div class="card-header" id="card_header_login_blade"><h1 class="fs-6 m-1">{{ __('Connexion') }}</h1></div>
+                <div class="card bg-transparent py-4 mt-2 mb-4" id="card_login_blade">
 
 
                     <!-- CARD BODY 
@@ -50,55 +29,71 @@
                         <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                            
+
                             <!-- SECTION "EMAIL + PASSWORD + CHECKBOX + PASSWORD OUBLIE"
                             ===================================================================================== -->
                             <div class="row justify-content-center">
-                                <div class="col-md-9 col-sm-11 mb-1">
-                                    <h3 class="text-center mt-2"><small>Informations de connexion</small></h3>
+                                <div class="col-md-10 col-sm-11 mb-1">
+                                    <h1 class="text-center mb-5">{{ __('Connexion') }}</h1>
 
 
-                                    <!-- EMAIL
+                                    <!-- LIEN CREER UN COMPTE
                                     ===================================================================================== -->
-                                    <div class="col">
-                                        <label for="email" class="col-form-label ms-1 mt-1"><small>{{ __('Adresse e-mail') }}</small></label>
-                                        <input id="email" type="email" placeholder="Adresse e-mail" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="on" autofocus>
-
-                                        @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                    <div class="col text-center">
+                                        <a class="text-light mx-auto p-0 my-2" id="lien_login_blade" href="{{ route('register') }}"><span class="position-relative" id="lien_span_login_blade">{{ __('- Créer un compte -') }}</span></a>
                                     </div>
 
 
-                                    <!-- PASSWORD
+                                    <!-- SPHERE
                                     ===================================================================================== -->
-                                    <div class="col">
-                                        <label for="password" class="col-form-label ms-1 mt-3"><small>{{ __('Mot de passe') }}</small></label>
-                                        <input id="password" type="password" placeholder="Mot de passe" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="off">
+                                    <div class="loader mx-auto my-3"></div>
 
-                                        @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+
+                                    <!-- EMAIL + MOT DE PASSE
+                                    ===================================================================================== -->
+                                    <div class="row justify-content-center mt-5">
+
+                                        <!-- EMAIL -->
+                                        <div class="col-md-6 col-sm-12 mb-2">
+                                            <label for="email" class="col-form-label ms-2 pb-1"><small>{{ __('- Adresse e-mail') }}</small></label>
+                                            <input id="email" type="email" placeholder="Adresse e-mail" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="on" autofocus>
+
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+
+
+                                        <!-- PASSWORD -->
+                                        <div class="col-md-6 col-sm-12">
+                                            <label for="password" class="col-form-label ms-2 pb-1"><small>{{ __('- Mot de passe') }}</small></label>
+                                            <input id="password" type="password" placeholder="Mot de passe" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="off">
+
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+
                                     </div>
 
 
                                     <!-- SECTION CHECKBOX + PASSWORD OUBLIE
                                     ===================================================================================== -->
-                                    <div class="col mt-5 d-flex justify-content-between border-bottom gap-2" style="border-color: #a0a4ef !important;">
+                                    <div class="col d-flex justify-content-between border-bottom gap-2 pb-1 mt-5">
 
                                         <!-- CHECKBOX -->
                                         <div class="form-check d-flex align-items-center">
-                                            <input class="form-check-input" type="checkbox" name="remember" style="background-color: #a0a4ef !important;" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                            <input class="form-check-input border" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                             <label class="form-check-label ms-1 mt-1" for="remember"><small>{{ __('Rester connecté') }}</small></label>
                                         </div>
 
                                         <!-- PASSWORD OUBLIE -->
                                         @if (Route::has('password.request'))
-                                            <a class="btn btn-link p-0 mt-1" href="{{ route('password.request') }}" style="list-style-type: none ; text-decoration: none;"><small style="color: #a0a4ef; text-decoration: none;">{{ __('Oublié ?') }}</small></a>
+                                            <a class="btn btn-link p-0 mt-1 text-light" href="{{ route('password.request') }}" style="list-style-type: none ; text-decoration: none;"><small>{{ __('Oublié ?') }}</small></a>
                                         @endif
 
                                     </div>
@@ -106,13 +101,21 @@
 
                                     <!-- BOUTON CONNEXION
                                     ===================================================================================== -->
-                                    <div class="row justify-content-center mt-3">
+                                    <div class="row justify-content-center mt-5" id="row_button_login_blade">
                                         <button type="submit" class="learn-more">
                                             <span class="circle" aria-hidden="true"><span class="icon arrow"></span></span>
                                             <span class="button-text">{{ __('Connexion') }}</span>
                                         </button>
                                     </div>
 
+
+                                    <!-- BOUTON "ENVOYER" TABLETTE - MOBILE
+                                    ===================================================================================== -->
+                                    <div class="row justify-content-center mt-5 d-none" id="row_button_tb_login_blade">
+                                        <button class="btn p-0" id="button_login_blade" type="submit">
+                                            <span>{{ __('Connexion') }}</span>
+                                        </button>
+                                    </div>
 
                                 </div>
                             </div>
